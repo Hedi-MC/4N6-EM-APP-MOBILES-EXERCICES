@@ -11,18 +11,14 @@ import android.widget.Toast;
 
 import org.melocherni.activitesa.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class Activity2 extends AppCompatActivity {
     private ActivityMainBinding binding;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_2);
 
-        binding= ActivityMainBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
+
 
 
     }
@@ -39,23 +35,22 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.action_Screen1) {
             Toast.makeText(getApplicationContext(), "Screen 1", Toast.LENGTH_SHORT).show();
-            startActivity( new Intent(MainActivity.this, MainActivity.class));
-
+            Intent i = new Intent(Activity2.this, MainActivity.class);
+            startActivity(i);
             return true;
         }
         if (id == R.id.action_Screen2) {
             Toast.makeText(getApplicationContext(), "Screen 2", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(MainActivity.this, Activity2.class));
-
+            Intent i = new Intent(Activity2.this, Activity2.class);
+            startActivity(i);
             return true;
         }
         if (id == R.id.action_Screen3) {
             Toast.makeText(getApplicationContext(), "Screen 3", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(MainActivity.this, activity3.class);
+            Intent i = new Intent(Activity2.this, activity3.class);
             startActivity(i);
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
-}
+    }

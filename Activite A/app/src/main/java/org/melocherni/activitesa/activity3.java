@@ -2,6 +2,7 @@ package org.melocherni.activitesa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,18 +12,14 @@ import android.widget.Toast;
 
 import org.melocherni.activitesa.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class activity3 extends AppCompatActivity {
     private ActivityMainBinding binding;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_3);
 
-        binding= ActivityMainBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
+
 
 
     }
@@ -39,19 +36,19 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.action_Screen1) {
             Toast.makeText(getApplicationContext(), "Screen 1", Toast.LENGTH_SHORT).show();
-            startActivity( new Intent(MainActivity.this, MainActivity.class));
-
+            Intent i = new Intent(activity3.this, MainActivity.class);
+            startActivity(i);
             return true;
         }
         if (id == R.id.action_Screen2) {
             Toast.makeText(getApplicationContext(), "Screen 2", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(MainActivity.this, Activity2.class));
-
+            Intent i = new Intent(activity3.this, Activity2.class);
+            startActivity(i);
             return true;
         }
         if (id == R.id.action_Screen3) {
             Toast.makeText(getApplicationContext(), "Screen 3", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(MainActivity.this, activity3.class);
+            Intent i = new Intent(activity3.this, activity3.class);
             startActivity(i);
             return true;
         }

@@ -38,11 +38,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void callRandom() {
-        service.getRandomNumber().enqueue(new Callback<Integer>() {
+        service.getRandomNumber().enqueue(new Callback<String>() {
             @Override
-            public void onResponse(@NonNull Call<Integer> call, @NonNull Response<Integer> response) {
+            public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
                 if (response.isSuccessful()) {
-                    Integer resultat = response.body();
+                    String resultat = response.body();
                     Log.i("RETROFIT", "Mon nombre aléatoire : " + resultat);
                     binding.tvRandom.setText(String.valueOf(resultat));
                 } else {
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(@NonNull Call<Integer> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
                 Log.i("RETROFIT", "J'ai une grosse erreur!" + t.getMessage());
                 Toast.makeText(MainActivity.this, "Y'a un gros problème!", Toast.LENGTH_SHORT).show();
             }
